@@ -1,5 +1,5 @@
 let req = new XMLHttpRequest();
-
+let res;
 req.open(
   "GET",
   "https://raw.githubusercontent.com/Rajavasanthan/jsondata/master/pagenation.json"
@@ -7,10 +7,10 @@ req.open(
 req.send();
 
 req.onload = function () {
-  let res = JSON.parse(req.response);
-  processData(res);
+  res = JSON.parse(req.response);
+  data_out(res);
 };
 
-function processData(data) {
-  console.log("Processed Data:", data);
+function data_out(data) {
+  console.log(data[0].id);
 }
